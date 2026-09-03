@@ -116,7 +116,7 @@ def find_anchor_window(sequence, left_anchor, right_anchor, insert_length, max_m
 
 def load_whitelist(path, barcode_length):
     if path is None:
-        return set(), {}
+        return set()
     whitelist = set()
     with open_text(path) as handle:
         for line in handle:
@@ -127,22 +127,21 @@ def load_whitelist(path, barcode_length):
                 whitelist.add(barcode.upper())
     if not whitelist:
         raise ValueError("No barcodes of the expected length were found in the whitelist")
-    neighbor_map = defaultdict(set)
-    for barcode in whitelist:
-        for index, base in enumerate(barcode):
-            for alternative in "ACGT":
-                if alternative != base:
-                    neighbor = barcode[:index] + alternative + barcode[index + 1 :]
-                    neighbor_map[neighbor].add(barcode)
-    return whitelist, neighbor_map
+    return whitelist
 
 
-def correct_barcode(barcode, whitelist, neighbor_map):
+def correct_barcode(barcode, whitelist):
     if not whitelist:
         return barcode, "not_checked"
     if barcode in whitelist:
         return barcode, "exact"
-    matches = neighbor_map.get(barcode, set())
+    matches = set()
+    for index, base in enumerate(barcode):
+        for alternative in "ACGT":
+            if alternative != base:
+                candidate = barcode[:index] + alternative + barcode[index + 1 :]
+                if candidate in whitelist:
+                    matches.add(candidate)
     if len(matches) == 1:
         return next(iter(matches)), "corrected_one_mismatch"
     if len(matches) > 1:
@@ -175,7 +174,7 @@ def run_detection(
     barcode_length, umi_length = CHEMISTRIES[chemistry]
     references = read_fasta(reference_path)
     aligners = {name: StripedSmithWaterman(sequence) for name, sequence in references.items()}
-    whitelist, neighbor_map = load_whitelist(barcode_whitelist, barcode_length)
+    whitelist = load_whitelist(barcode_whitelist, barcode_length)
     output_prefix = Path(output_prefix)
     output_prefix.parent.mkdir(parents=True, exist_ok=True)
     hit_path = Path(f"{output_prefix}.hit_read_pairs.tsv.gz")
@@ -221,7 +220,7 @@ def run_detection(
             insert = r1_sequence[window["insert_start"] : window["insert_end"]]
             barcode_raw = insert[:barcode_length]
             umi = insert[barcode_length:]
-            barcode, barcode_status = correct_barcode(barcode_raw, whitelist, neighbor_map)
+            barcode, barcode_status = correct_barcode(barcode_raw, whitelist)
             barcode_status_counts[barcode_status] += 1
             r2_reverse = reverse_complement(r2_sequence)
 

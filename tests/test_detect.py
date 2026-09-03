@@ -41,14 +41,13 @@ def test_anchor_mismatch_limit():
 
 def test_barcode_correction_statuses():
     whitelist = {"AAAAAAAAAAAAAAAA", "CAAAAAAAAAAAAAAA"}
-    neighbor_map = {"GAAAAAAAAAAAAAAA": whitelist, "AAAAAAAAAAAAAAAT": {"AAAAAAAAAAAAAAAA"}}
-    assert correct_barcode("AAAAAAAAAAAAAAAA", whitelist, neighbor_map) == ("AAAAAAAAAAAAAAAA", "exact")
-    assert correct_barcode("AAAAAAAAAAAAAAAT", whitelist, neighbor_map) == (
+    assert correct_barcode("AAAAAAAAAAAAAAAA", whitelist) == ("AAAAAAAAAAAAAAAA", "exact")
+    assert correct_barcode("AAAAAAAAAAAAAAAT", whitelist) == (
         "AAAAAAAAAAAAAAAA",
         "corrected_one_mismatch",
     )
-    assert correct_barcode("GAAAAAAAAAAAAAAA", whitelist, neighbor_map)[1] == "ambiguous_one_mismatch"
-    assert correct_barcode("TTTTTTTTTTTTTTTT", whitelist, neighbor_map)[1] == "not_in_whitelist"
+    assert correct_barcode("GAAAAAAAAAAAAAAA", whitelist)[1] == "ambiguous_one_mismatch"
+    assert correct_barcode("TTTTTTTTTTTTTTTT", whitelist)[1] == "not_in_whitelist"
 
 
 @pytest.mark.parametrize(
