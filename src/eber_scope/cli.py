@@ -1,12 +1,14 @@
 import argparse
 from importlib.resources import files
 
+from eber_scope import __version__
 from eber_scope.detect import CHEMISTRIES, run_detection
 from eber_scope.merge_calls import merge_calls
 
 
 def build_parser():
     parser = argparse.ArgumentParser(prog="eber-scope")
+    parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     detect = subparsers.add_parser("detect", help="Detect EBER1-positive cell barcodes")

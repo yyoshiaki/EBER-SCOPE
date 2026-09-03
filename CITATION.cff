@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use EBER-SCOPE, please cite this software."
+title: "EBER-SCOPE: EBER1 detection from targeted 10x 5-prime paired-end FASTQs"
+type: software
+authors:
+  - family-names: Yasumizu
+    given-names: Yoshiaki
+repository-code: "https://github.com/yyoshiaki/EBER-SCOPE"
+version: 0.1.0
+license: MIT

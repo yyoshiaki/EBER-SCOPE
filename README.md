@@ -71,3 +71,8 @@ barcodes absent from that table are intentionally not added.
 
 Do not commit human FASTQs, cell-level outputs, sample manifests, or protected
 metadata to this repository. Tests use synthetic reads only.
+
+## License and citation
+
+EBER-SCOPE is released under the MIT License. Citation metadata are provided
+in `CITATION.cff`.
