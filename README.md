@@ -72,6 +72,16 @@ barcodes absent from that table are intentionally not added.
 Do not commit human FASTQs, cell-level outputs, sample manifests, or protected
 metadata to this repository. Tests use synthetic reads only.
 
+## Validation
+
+The packaged workflow passed 11 synthetic regression tests and an equivalence
+check on 2,000,000 read pairs from a representative production 10x 5′ v3
+library. The legacy and packaged workflows identified the same 17 qualifying
+read pairs and 15 usable positive cell barcodes, with exact agreement across
+read-level fields and cell-level summaries. The privacy-safe aggregate report
+is provided in `validation/260903_production_subset_equivalence.json`; no FASTQ,
+cell barcode, UMI, sample identifier, or internal path is included.
+
 ## Citation
 
 When using EBER-SCOPE for this workflow, please cite:

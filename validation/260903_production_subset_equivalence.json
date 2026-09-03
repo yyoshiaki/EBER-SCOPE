@@ -1,0 +1,31 @@
+{
+  "tested_code_commit": "5fcdef380478a83f103c8471d2a868f6251443de",
+  "input_description": "representative production 10x 5-prime v3 paired-end FASTQ subset",
+  "subset_read_pairs": 2000000,
+  "legacy_anchor_matched_rows": 59836,
+  "legacy_hit_rows": 17,
+  "new_hit_rows": 17,
+  "legacy_usable_positive_barcodes": 15,
+  "new_usable_positive_barcodes": 15,
+  "checks": {
+    "hit_row_count": true,
+    "minimum_hit_requirement": true,
+    "barcode_raw": true,
+    "barcode": true,
+    "umi": true,
+    "anchor_left_mismatches": true,
+    "anchor_right_mismatches": true,
+    "barcode_status": true,
+    "alignment_span_fraction_r1": true,
+    "alignment_span_fraction_r2": true,
+    "summed_alignment_span_fraction": true,
+    "cdna_length_r1": true,
+    "read_length_r2": true,
+    "cell_barcode_count": true,
+    "cell_barcode_set": true,
+    "cell_read_pair_counts": true,
+    "cell_unique_umi_counts": true,
+    "cell_max_alignment_fraction": true
+  },
+  "all_checks_passed": true
+}
