@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eber-scope"
+version = "0.1.0"
+description = "EBER1 detection from targeted 10x 5-prime paired-end FASTQs"
+readme = "README.md"
+requires-python = ">=3.10,<3.12"
+dependencies = [
+  "pandas==2.0.3",
+  "scikit-bio==0.6.2",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7,<9"]
+
+[project.scripts]
+eber-scope = "eber_scope.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+eber_scope = ["references/*.fa"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+dist/
+build/
+.DS_Store
+
+# Sequence data and analysis outputs must not be committed.
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.h5
+*.h5ad
+*.h5mu
+*.bam
+*.cram
+*.tsv.gz
+*.qc.json

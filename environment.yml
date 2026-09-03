@@ -1,0 +1,9 @@
+name: eber-scope
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pandas=2.0.3
+  - scikit-bio=0.6.2
+  - pytest=8
+  - pip
