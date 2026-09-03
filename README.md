@@ -72,7 +72,16 @@ barcodes absent from that table are intentionally not added.
 Do not commit human FASTQs, cell-level outputs, sample manifests, or protected
 metadata to this repository. Tests use synthetic reads only.
 
-## License and citation
+## Citation
 
-EBER-SCOPE is released under the MIT License. Citation metadata are provided
-in `CITATION.cff`.
+When using EBER-SCOPE for this workflow, please cite:
+
+> Yasumizu Y, Kim N, Rivier CA, et al. A Genetically Driven Immunologic
+> Mechanism Underlying the Link between EBV and Multiple Sclerosis. medRxiv.
+> 2026. https://doi.org/10.64898/2025.12.11.25342083
+
+Software citation metadata are provided in `CITATION.cff`.
+
+## License
+
+EBER-SCOPE is released under the MIT License.

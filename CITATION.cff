@@ -8,3 +8,44 @@ authors:
 repository-code: "https://github.com/yyoshiaki/EBER-SCOPE"
 version: 0.1.0
 license: MIT
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Yasumizu
+      given-names: Y.
+    - family-names: Kim
+      given-names: N.
+    - family-names: Rivier
+      given-names: C. A.
+    - family-names: Moon
+      given-names: J.
+    - family-names: Kojima
+      given-names: S.
+    - family-names: Chen
+      given-names: H.-L.
+    - family-names: Buitrago-Pocasangre
+      given-names: N.
+    - family-names: Silberfeld
+      given-names: A.
+    - family-names: Quinn
+      given-names: E.
+    - family-names: Vaughn
+      given-names: S.
+    - family-names: Morgan
+      given-names: A.
+    - family-names: Huo
+      given-names: S.
+    - family-names: Sumida
+      given-names: T. S.
+    - family-names: Ishigaki
+      given-names: K.
+    - family-names: Longbrake
+      given-names: E. E.
+    - family-names: Falcone
+      given-names: G. J.
+    - family-names: Hafler
+      given-names: D. A.
+  title: "A Genetically Driven Immunologic Mechanism Underlying the Link between EBV and Multiple Sclerosis"
+  journal: medRxiv
+  year: 2026
+  doi: "10.64898/2025.12.11.25342083"
